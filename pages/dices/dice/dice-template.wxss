@@ -1,0 +1,30 @@
+#border{
+    width: 80rpx;
+    height: 80rpx;
+    border: 3px solid black;
+    border-radius: 50rpx;
+    position: absolute;
+    top: 210rpx;
+    left: 210rpx;
+    padding:30rpx;
+    background-color: white;
+}
+
+#dot-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.dot{
+    width:25rpx;
+    height: 25rpx;
+    border-radius: 13rpx;
+}

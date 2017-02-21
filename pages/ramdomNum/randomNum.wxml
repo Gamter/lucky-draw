@@ -1,0 +1,11 @@
+
+<!--pages/ramdomNum/randomNum.wxml-->
+<view id="container">
+  <view id="header">从
+    <input value="{{num1}}" placeholder="最小值" type="number" maxlength="4" bindblur="setNum1"/>
+    到
+    <input value="{{num2}}" placeholder="最大值" type="number" maxlength="4" bindblur="setNum2"/>
+  </view>
+  <view id="result">{{result}}</view>
+  <view id="btn-start" catchtap="start">{{btn}}</view>
+</view>

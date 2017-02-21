@@ -1,0 +1,40 @@
+/* pages/dice/dice.wxss */
+@import "dice/dice-template.wxss";
+/*@import "dice/dice-template.wxss";*/
+#header{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    line-height: 70rpx;
+    top:5%;
+    left: 50%;
+    margin-left: -200rpx;
+    font-size: 60rpx;
+    width: 400rpx;
+    height: 70rpx;
+}
+
+#dices{
+    position: absolute;
+    width: 750rpx;
+    top:10%;
+    bottom:20%;
+    left: 50%;
+    margin-left: -375rpx;
+    background-color: #eee;
+
+}
+
+#btn-roll{
+    position: absolute;
+    width: 200rpx;
+    height: 100rpx;
+    margin-left: 50%;
+    bottom: 10%;
+    left: -100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    background-color: #66B3FF;
+    border-radius: 10px;
+}
