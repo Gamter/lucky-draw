@@ -59,7 +59,6 @@ Page({
 
     this.setData({
       animationData:diceAnim.export()
-      // 22222222222
     })
   }
 })
