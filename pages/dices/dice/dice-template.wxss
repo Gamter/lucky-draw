@@ -3,9 +3,9 @@
     height: 80rpx;
     border: 3px solid black;
     border-radius: 50rpx;
-    top:200rpx;
-    left:200rpx;
     position: absolute;
+    top: 210rpx;
+    left: 210rpx;
     padding:30rpx;
     background-color: white;
 }

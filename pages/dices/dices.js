@@ -1,8 +1,7 @@
 // pages/dice/dices.js
 Page({
   data: {
-    diceCount: 1,
-    dicesData:[{},{}]
+    diceCount: 4,
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -15,7 +14,7 @@ Page({
       6: "134679"
     };
     this.timer = null;
-    //this.setDicesData(0);
+    this.setDicesData(0);
   },
   onReady: function () {
     // 页面渲染完成
@@ -99,44 +98,23 @@ Page({
     };
     this.setData({dicesData:dicesData});
 
-    // 色子点数数据
-    // var that = this;
-    // this.timer=setTimeout(function(){
+    //色子点数数据
+    var that = this;
+    this.timer=setTimeout(function(){
 
-    //   for(var j = 0; j < diceCount; j++){
-    //     dicesData[j].dots = that.createDotData();
-    //   }
-    //   that.setData({
-    //     dicesData:dicesData
-    //   })
-    // },400);
+      for(var j = 0; j < diceCount; j++){
+        dicesData[j].dots = that.createDotData();
+      }
+      that.setData({
+        dicesData:dicesData
+      })
+    },400);
 
   },
 
   // 摇色子
   onRollTap: function () {
-    //this.setDicesData(this.data.diceCount);
-    // var a1 = this.createAnim(600,600);
-    // var a2 = this.createAnim(300,500);
-    var animation = wx.createAnimation({
-      duration: 400,
-      timingFunction: 'linear', // "linear","ease","ease-in","ease-in-out","ease-out","step-start","step-end"
-      delay: 0,
-    });
-    animation.top("-200rpx").left("-200rpx").step();
-    animation.top("600rpx").left("600rpx").step({ duration: 1000, timingFunction: "ease", delay: 500 });
-    var a1 = animation.export();
-    animation.top("-200rpx").left("-200rpx").step();
-    animation.top("300rpx").left("500rpx").step({ duration: 1000, timingFunction: "ease", delay: 500 });
-    var a2 = animation.export();
-    var dots1 = this.createDotData();
-    var dots2 = this.createDotData();
-    var dicesData = [{anim:a1,dots:dots1},{anim:a2,dots:dots2}]
-    //var animArr = [{anim:a},{anim:a2}];
-    this.setData({
-      dicesData:dicesData
-    })
-
+    this.setDicesData(this.data.diceCount);
   },
 
   // 减少色子数量
