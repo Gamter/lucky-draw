@@ -21,6 +21,12 @@
     background-color: red;
 }
 
+.dice-container{
+    position:absolute;
+    top:200rpx;
+    left:200rpx;
+}
+
 #dice-zone{
     position: absolute;
     width: 750rpx;

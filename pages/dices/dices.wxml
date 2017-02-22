@@ -8,7 +8,16 @@
 </view>
 <view id="dice-zone">
   <block wx:for="{{dicesData}}">
-    <template is="dice-template" data="{{item}}" />
+    <template is="dice-template" data="{{...item}}" />
+    
   </block>
+  <!--<view class = "dice-container" animation = "{{anim1}}">
+    <template is="dice-template" data="{{dots}}" />
+  </view>
+  <view class = "dice-container" animation = "{{anim2}}">
+    <template is="dice-template" data="{{dots}}" />
+  </view>-->
+  
+
 </view>
 <view id="btn-roll" catchtap="onRollTap">摇</view>
