@@ -1,12 +1,14 @@
 
 <!--pages/dice/dice.wxml-->
 <import src="dice/dice-template.wxml" />
-<view id = "header">
+<view id="header">
   <view class="btn" catchtap="reduceDice">-</view>
   <text>{{diceCount}}</text>
   <view class="btn" catchtap="addDice">+</view>
 </view>
-<view id = "dice-zone" >
-<template is="dice-template" data="{{dotsHidden,animationData}}"/>
+<view id="dice-zone">
+  <block wx:for="{{dicesData}}">
+    <template is="dice-template" data="{{item}}" />
+  </block>
 </view>
-<view id = "btn-roll" catchtap="onRollTap" >摇</view>
+<view id="btn-roll" catchtap="onRollTap">摇</view>

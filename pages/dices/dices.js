@@ -1,7 +1,7 @@
 // pages/dice/dices.js
 Page({
   data: {
-    diceCount: 4
+    diceCount: 4,
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -14,6 +14,7 @@ Page({
       6: "134679"
     };
     this.timer = null;
+    this.setDicesData(0);
   },
   onReady: function () {
     // 页面渲染完成
@@ -23,8 +24,7 @@ Page({
   },
 
   // 产生色子点数
-  generateDot: function () {
-    console.log("generateDot");
+  createDotData: function () {
     var num = Math.ceil(Math.random() * 6);
     var diceData = this.dotsData[num];
     var dotsHidden = {};
@@ -39,8 +39,7 @@ Page({
   },
 
   // 产生色子动画
-  generateAnim: function (left,top) {
-    console.log("generateAnim");
+  createAnim: function (left,top) {
     var diceAnim = wx.createAnimation({
       duration: 400,
       timingFunction: 'linear',
@@ -56,13 +55,12 @@ Page({
 
   // 产生色子移动终点位置
   createDicesPos: function () {
-    console.log("createDicesPos");
     var dicesPos = [];
     // 色子位置判断
     function judgePos(l,t){
       for(var j = 0; j < dicesPos.length; j++){
         // 判断新产生的色子位置是否与之前产生的色子位置重叠
-        if(dicesPos[j].left<l<dicesPos[j].left+146 && dicesPos[j].top<t<dicesPos[j].top+146){
+        if((dicesPos[j].left<l && l<dicesPos[j].left+146) && (dicesPos[j].top<t && t<dicesPos[j].top+146)){
           return false;
         }
       }
@@ -80,28 +78,43 @@ Page({
     return dicesPos;
   },
 
+  // 设置色子数据
+  setDicesData:function(diceCount){
+    var dicesData = [];
+
+    // 色子是否显示和色子动画数据
+    var dicesPos = this.createDicesPos(); // 所有色子的位置数据
+
+    for(var i = 0; i<9; i++){
+      var diceData = {};
+      if(i < diceCount){
+        diceData.hidden = false;
+        diceData.anim = this.createAnim(dicesPos[i].left,dicesPos[i].left);
+      }else{
+        diceData.hidden = true;
+        diceData.anim = null;
+      }
+      dicesData.push(diceData);
+    };
+    this.setData({dicesData:dicesData});
+
+    // 色子点数数据
+    // var that = this;
+    // this.timer=setTimeout(function(){
+
+    //   for(var j = 0; j < diceCount; j++){
+    //     dicesData[j].dots = that.createDotData();
+    //   }
+    //   that.setData({
+    //     dicesData:dicesData
+    //   })
+    // },400);
+
+  },
+
   // 摇色子
   onRollTap: function () {
-    console.log("roll");
-    var that = this;
-    var dicesDotData = []; // 所有色子的点数数据
-    var dicesAnimData = []; // 所有色子的动画数据
-    var dicesPos = this.createDicesPos(); // 所有色子的位置数据
-    for (var i = 0; i < this.data.diceCount; i++) {
-      dicesDotData[i] = this.generateDot();
-      dicesAnimData[i] = this.generateAnim(dicesPos[i].left,dicesPos[i].top);
-    }
-    // 色子动画数据绑定
-    this.setData({
-      dicesAnim: dicesAnimData
-    })
-    // 色子移出屏幕后改变点数，故延迟进行色子点数的数据绑定
-    clearTimeout(this.timer);
-    this.timer = setTimeout(function () {
-      that.setData({
-        dicesDot: dicesDotData
-      })
-    }, 400)
+    this.setDicesData(this.data.diceCount);
   },
 
   // 减少色子数量
