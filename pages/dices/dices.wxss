@@ -15,6 +15,12 @@
     height: 70rpx;
 }
 
+.btn{
+    width:50rpx;
+    height: 50rpx;
+    background-color: red;
+}
+
 #dices{
     position: absolute;
     width: 750rpx;

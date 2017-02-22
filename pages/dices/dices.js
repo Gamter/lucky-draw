@@ -1,7 +1,7 @@
 // pages/dice/dices.js
 Page({
   data: {
-
+    diceCount:4
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -13,7 +13,7 @@ Page({
       5: "13579",
       6: "134679"
     };
-    
+    this.timer = null;
   },
   onReady: function () {
     // 页面渲染完成
@@ -53,12 +53,28 @@ Page({
     });
     // 色子移出屏幕
     diceAnim.top("-200rpx").left("-200rpx").step();
-    this.diceChange();
+    // 点数变化
+    clearTimeout(this.timer);
+    this.timer = setTimeout(this.diceChange,400);
      // 色子移入屏幕
-    diceAnim.top("70%").left("50%").rotate(180).step({ duration: 1000, timingFunction: "ease" });
+    diceAnim.top("70%").left("50%").rotate(180).step({ duration: 1000, timingFunction: "ease",delay:500 });
 
     this.setData({
       animationData:diceAnim.export()
     })
+  },
+  reduceDice:function(){
+    if(this.data.diceCount > 1){
+      this.setData({
+        diceCount:this.data.diceCount - 1
+      })
+    }
+  },
+  addDice:function(){
+    if(this.data.diceCount < 10){
+      this.setData({
+        diceCount:this.data.diceCount + 1
+      })
+    }
   }
 })

@@ -2,9 +2,9 @@
 <!--pages/dice/dice.wxml-->
 <import src="dice/dice-template.wxml" />
 <view id = "header">
-  <view>-</view>
-  <text>1</text>
-  <view>+</view>
+  <view class="btn" catchtap="reduceDice">-</view>
+  <text>{{diceCount}}</text>
+  <view class="btn" catchtap="addDice">+</view>
 </view>
 <view id = "dices" >
 <template is="dice-template" data="{{dotsHidden,animationData}}"/>
