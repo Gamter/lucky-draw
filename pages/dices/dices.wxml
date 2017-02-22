@@ -6,7 +6,7 @@
   <text>{{diceCount}}</text>
   <view class="btn" catchtap="addDice">+</view>
 </view>
-<view id = "dices" >
+<view id = "dice-zone" >
 <template is="dice-template" data="{{dotsHidden,animationData}}"/>
 </view>
 <view id = "btn-roll" catchtap="onRollTap" >摇</view>

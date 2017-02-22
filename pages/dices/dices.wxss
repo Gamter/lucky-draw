@@ -21,14 +21,14 @@
     background-color: red;
 }
 
-#dices{
+#dice-zone{
     position: absolute;
     width: 750rpx;
+    height: 700rpx;
     top:10%;
-    bottom:20%;
     left: 50%;
     margin-left: -375rpx;
-    background-color: #eee;
+    background-color: #666;
 
 }
 
