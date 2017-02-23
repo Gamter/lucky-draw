@@ -1,7 +1,8 @@
 // pages/dice/dices.js
 Page({
   data: {
-
+    diceCount: 1,
+    dicesData:[]
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -13,7 +14,11 @@ Page({
       5: "13579",
       6: "134679"
     };
-    
+    this.timer = null;
+    this.animation = wx.createAnimation({
+      duration: 400,
+      timingFunction: 'linear',
+    });
   },
   onReady: function () {
     // 页面渲染完成
@@ -22,43 +27,112 @@ Page({
     // 页面显示
   },
 
-  diceChange:function() {
-      var num = Math.ceil(Math.random() * 6);
-      var diceData = this.dotsData[num];
-      var dotsHidden = {};
-      for (var i = 1; i <= 9; i++) {
-        if (diceData.indexOf(i) > -1) {
-          dotsHidden[i] = "black";
-        } else {
-          dotsHidden[i] = "white";
+  // 产生色子点数
+  createDotData: function () {
+    var num = Math.ceil(Math.random() * 6);
+    var diceData = this.dotsData[num];
+    var dotsHidden = {};
+    for (var i = 1; i <= 9; i++) {
+      if (diceData.indexOf(i) > -1) {
+        dotsHidden[i] = "black";
+      } else {
+        dotsHidden[i] = "white";
+      }
+    };
+    return dotsHidden;
+  },
+
+  // 产生色子动画
+  createAnim: function (left, top) {
+    // 色子移入屏幕
+    this.animation.top(top + "rpx").left(left + "rpx").rotate(Math.random()*180).step({ duration: 1000, timingFunction: "ease-out" });
+    return this.animation.export();
+  },
+
+  // 产生色子移动终点位置
+  createDicesPos: function () {
+    var dicesPos = [];
+    // 色子位置判断
+    function judgePos(l, t) {
+      for (var j = 0; j < dicesPos.length; j++) {
+        // 判断新产生的色子位置是否与之前产生的色子位置重叠
+        if ((dicesPos[j].left-146 < l && l < dicesPos[j].left + 146) && (dicesPos[j].top-146 < t && t < dicesPos[j].top + 146)) {
+          return false;
         }
-      };
-      this.setData({
-        dotsHidden: dotsHidden
-      });
-    },
+      }
+      return true;
+    }
+    for (var i = 0; i < this.data.diceCount; i++) {
+      var posData = {},
+          left = 0,
+          top = 0;
+      do {
+        // 随机产生色子的可能位置
+        left = Math.round(Math.random() * 600); // 0~600,根据色子区域和色子的大小计算得出
+        top = Math.round(Math.random() * 550); // 0~550,根据色子区域和色子的大小计算得出
+      } while (!judgePos(left,top));
+      posData.left = left;
+      posData.top = top;
+      dicesPos.push(posData);
+    }
+    return dicesPos;
+  },
+
+  // 设置色子数据
+  setDicesData: function (diceCount) {
+    var dicesData = [];
+
+    // 色子动画数据
+    var dicesPos = this.createDicesPos(); // 所有色子的位置数据
+    for (var i = 0; i < diceCount; i++) {
+      var diceData = {};
+      diceData.anim = this.createAnim(dicesPos[i].left, dicesPos[i].top);
+      diceData.dots = this.createDotData();
+      dicesData.push(diceData);
+    }
+    this.setData({ dicesData: dicesData });
     
-  onHide: function () {
-    // 页面隐藏
   },
-  onUnload: function () {
-    // 页面关闭
-  },
+
+  // 摇色子
   onRollTap: function () {
+    // 设置色子移出动画
+    var newData = this.data.dicesData;
+    if(newData.length < this.data.diceCount){
+      for(var i = 0; i < this.data.diceCount;i++){
+        var data = {};
+        newData.push(data);
+      }
+    }
+    for (var i = 0; i < newData.length; i++) {
+      this.animation.left("-233rpx").top("123rpx").rotate(-180).step();
+      newData[i].anim = this.animation.export();
+      this.setData({ dicesData: newData });
+    }
+    
     var that = this;
+    this.timer = setTimeout(function(){
+      // 色子改变点数并移入屏幕
+      that.setDicesData(that.data.diceCount);
+    },1400)
+    
+  },
 
-    var diceAnim = wx.createAnimation({
-      duration: 400,
-      timingFunction: 'linear',
-    });
-    // 色子移出屏幕
-    diceAnim.top("-200rpx").left("-200rpx").step();
-    this.diceChange();
-     // 色子移入屏幕
-    diceAnim.top("70%").left("50%").rotate(180).step({ duration: 1000, timingFunction: "ease" });
+  // 减少色子数量
+  reduceDice: function () {
+    if (this.data.diceCount > 1) {
+      this.setData({
+        diceCount: this.data.diceCount - 1
+      })
+    }
+  },
 
-    this.setData({
-      animationData:diceAnim.export()
-    })
+  // 增加色子数量
+  addDice: function () {
+    if (this.data.diceCount < 9) {
+      this.setData({
+        diceCount: this.data.diceCount + 1
+      })
+    }
   }
 })

@@ -1,20 +1,20 @@
 <template name="dice-template">
-  <view id="border" animation="{{animationData}}">
+  <view id="border" animation="{{anim}}">
     <view id="dot-container">
       <view class="row">
-        <view class="dot" style="background-color:{{dotsHidden[1]}}"></view>
-        <view class="dot" style="background-color:{{dotsHidden[2]}}"></view>
-        <view class="dot" style="background-color:{{dotsHidden[3]}}"></view>
+        <view class="dot" style="background-color:{{dots[1]}}"></view>
+        <view class="dot" style="background-color:{{dots[2]}}"></view>
+        <view class="dot" style="background-color:{{dots[3]}}"></view>
       </view>
       <view class="row">
-        <view class="dot" style="background-color:{{dotsHidden[4]}}"></view>
-        <view class="dot" style="background-color:{{dotsHidden[5]}}"></view>
-        <view class="dot" style="background-color:{{dotsHidden[6]}}"></view>
+        <view class="dot" style="background-color:{{dots[4]}}"></view>
+        <view class="dot" style="background-color:{{dots[5]}}"></view>
+        <view class="dot" style="background-color:{{dots[6]}}"></view>
       </view>
       <view class="row">
-        <view class="dot" style="background-color:{{dotsHidden[7]}}"></view>
-        <view class="dot" style="background-color:{{dotsHidden[8]}}"></view>
-        <view class="dot" style="background-color:{{dotsHidden[9]}}"></view>
+        <view class="dot" style="background-color:{{dots[7]}}"></view>
+        <view class="dot" style="background-color:{{dots[8]}}"></view>
+        <view class="dot" style="background-color:{{dots[9]}}"></view>
       </view>
     </view>
   </view>
