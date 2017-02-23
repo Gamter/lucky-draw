@@ -1,5 +1,5 @@
 <template name="dice-template">
-  <view id="border" animation="{{anim}}" hidden="{{hidden}}">
+  <view id="border" animation="{{anim}}">
     <view id="dot-container">
       <view class="row">
         <view class="dot" style="background-color:{{dots[1]}}"></view>

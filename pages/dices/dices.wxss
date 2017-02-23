@@ -1,24 +1,46 @@
 /* pages/dice/dice.wxss */
 @import "dice/dice-template.wxss";
 /*@import "dice/dice-template.wxss";*/
+page{
+    background-color: #4F4F4F;
+}
 #header{
     position: absolute;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    line-height: 70rpx;
+    line-height:100rpx;
     top:5%;
     left: 50%;
     margin-left: -200rpx;
     font-size: 60rpx;
     width: 400rpx;
-    height: 70rpx;
+    height:100rpx;
+    text-align: center
 }
 
 .btn{
-    width:50rpx;
-    height: 50rpx;
-    background-color: red;
+    width:100rpx;
+    height: 100rpx;
+}
+.btn image{
+    width:100rpx;
+    height: 100rpx;
+}
+.btn image:active{
+    position: relative;
+    left: 5rpx;
+    top:10rpx;
+    width:80rpx;
+    height: 80rpx;
+
+}
+
+#dice-count{
+    width: 100rpx;
+    height: 100rpx;
+    font-family: "microsoft yahei";
+    color:white;
 }
 
 #dice-zone{
@@ -28,19 +50,33 @@
     top:10%;
     left: 50%;
     margin-left: -375rpx;
-    background-color: #666;
-
 }
 
-#btn-roll{
+#btn-roll-container{
     position: absolute;
     width: 200rpx;
     height: 100rpx;
     margin-left: 50%;
     bottom: 10%;
     left: -100rpx;
+    
+}
+#btn-roll{
+    width: 200rpx;
+    height: 100rpx;
+    display: block;
     text-align: center;
     line-height: 100rpx;
-    background-color: #66B3FF;
+    border: 1px solid white;
+    color:white;
     border-radius: 10px;
+}
+#btn-roll:active{
+    position: relative;
+    width: 180rpx;
+    height: 90rpx;
+    color:white;
+    top:5rpx;
+    left:10rpx;
+    line-height: 90rpx;
 }
