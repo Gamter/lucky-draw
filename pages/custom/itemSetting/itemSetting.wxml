@@ -1,0 +1,17 @@
+
+<!--pages/custom/itemSetting/itemSetting.wxml-->
+<import src="item-template/item-template.wxml" />
+<scroll-view id="item-list" scroll-y="true">
+  <block wx:for="{{itemCount}}">
+    <view class="item">
+      <template is="item-template" data="{{index}}" />
+    </view>
+  </block>
+  <view id="add" catchtap="addItem">
+    <image src="/images/btn-add.png">
+    </image>
+  </view>
+</scroll-view>
+<view id="save-container" catchtap="saveItems">
+  <text id="save">保存</text>
+</view>

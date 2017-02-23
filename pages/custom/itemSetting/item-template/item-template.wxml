@@ -1,0 +1,11 @@
+<template name="item-template">
+  <view id="item-container">
+    <view id="number">{{index+1}}</view>
+    <view id="item">
+      <input placeholder="项目名" placeholder-style="color:white;opacity:0.3;" focus="true" bindblur="saveItem"/>
+    </view>
+    <view id="remove" catchtap="removeItem" data-idx="{{index}}">
+      <image src="/images/btn-delete.png"></image>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,38 @@
+#item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 500rpx;
+  color: white;
+}
+
+#number {
+    width:80rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+}
+
+#item {
+    height: 80rpx;
+}
+
+#item input {
+  width: 350rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border: 1px solid white;
+  font-size: 36rpx;
+}
+#remove{
+    width:80rpx;
+    height: 80rpx;
+    line-height: 120rpx;
+    text-align: center;
+}
+
+#remove image {
+  width: 60rpx;
+  height: 60rpx;
+}
