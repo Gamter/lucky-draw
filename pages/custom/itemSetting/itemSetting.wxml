@@ -1,10 +1,10 @@
 
 <!--pages/custom/itemSetting/itemSetting.wxml-->
 <import src="item-template/item-template.wxml" />
-<scroll-view id="item-list" scroll-y="true">
-  <block wx:for="{{itemCount}}">
+<scroll-view id="item-list" scroll-y="true" scroll-top="{{scrollTop}}">
+  <block wx:for="{{itemsData}}">
     <view class="item">
-      <template is="item-template" data="{{index}}" />
+      <template is="item-template" data="{{index,item}}" />
     </view>
   </block>
   <view id="add" catchtap="addItem">
