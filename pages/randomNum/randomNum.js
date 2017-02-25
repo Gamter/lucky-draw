@@ -41,7 +41,6 @@ Page({
   },
 
   start:function(event){
-    console.log(event);
     if(this.data.btn == "开始"){
       this.timer=setInterval(this.roll,100);
       this.setData({
