@@ -1,29 +1,29 @@
 /* pages/custom/custom.wxss */
-page{
-     background-color: "#7f7f7f";
-     color:white;
-}
 
 #display-container{
-    height: 80rpx;
-    width: 100%;
-    border-top:1px solid white;
-    border-bottom:1px solid white;
+    width:500rpx;
     position:absolute;
-    top:15%;
+    top:10%;
+    left: 50%;
+    margin-left: -250rpx;
     text-align: center;
-    line-height: 80rpx;
+    line-height: 100rpx;
+    font-size: 80rpx;
+    /*display: inline-flex;
+    flex-direction: column;*/
+    word-break: break-all;
 }
 
 .btn-container{
     width:200rpx;
-    height: 100rpx;
+    height: 150rpx;
     position: absolute;
     left: 50%;
     margin-left: -100rpx;
-    bottom: 30%;
+    bottom: 15%;
     border: 1px solid white;
-    border-radius: 30rpx;
+    border-radius: 75rpx;
     text-align: center;
-    line-height: 100rpx;
+    line-height: 150rpx;
+    font-size: 50rpx;
 }

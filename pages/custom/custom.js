@@ -2,7 +2,7 @@
 Page({
   data: {
     displayItem: "设置",
-    noData: true
+    hideBtn: true
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -32,12 +32,12 @@ Page({
     // 若没有设置过项目，或清空了项目，则隐藏开始按钮
     if (wx.getStorageSync('itemsData') && wx.getStorageSync('itemsData').length > 0) {
       this.setData({
-        noData: false
+        hideBtn: false
       })
     } else {
       this.setData({
         displayItem: "设置",
-        noData: true
+        hideBtn: true
       })
     }
   },
@@ -54,6 +54,9 @@ Page({
   },
 
   start: function () {
+    this.setData({
+      hideBtn:true
+    })
     clearTimeout(this.timer);
     this.roll();
   },
@@ -74,6 +77,9 @@ Page({
       } else {
         this.t = 50;
         this.count = 0;
+        this.setData({
+          hideBtn:false
+        })
       }
     }
   }

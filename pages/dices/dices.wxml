@@ -15,6 +15,6 @@
     <template is="dice-template" data="{{...item}}" />
   </block>
 </view>
-<view id="btn-roll-container" catchtap="onRollTap">
+<view id="btn-roll-container" catchtap="onRollTap" hidden="{{hideBtn}}">
   <text id="btn-roll" >摇</text>
 </view>

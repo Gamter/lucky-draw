@@ -1,6 +1,8 @@
 /**app.wxss**/
 page{
-  background-color: #7f7f7f;
+  font-family: Microsoft Yahei;
+  background-color: #222;
+  color:white;
 }
 .container {
   background-color: #7f7f7f;

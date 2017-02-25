@@ -1,5 +1,5 @@
 <view id="container">
   <view class="btn" catchtap="onRandomNumTap">随机数</view>
-  <view class="btn" catchtap="onDiceTap">摇骰子</view>
+  <view class="btn" catchtap="onDiceTap">摇色子</view>
   <view class="btn" catchtap="onCustomTap">自定义</view>
 </view>
