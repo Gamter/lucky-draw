@@ -2,6 +2,5 @@
 <!--pages/custom/custom.wxml-->
 <view id="display-container" catchtap="setItem">{{displayItem}}</view>
 <view hidden="{{noData}}">
-  <view class="btn-container" catchtap="start" hidden="{{isRolling}}">开始</view>
-  <view class="btn-container" catchtap="stop" hidden="{{!isRolling}}">停止</view>
+  <view class="btn-container" catchtap="start">摇</view>
 </view>
