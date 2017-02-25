@@ -92,5 +92,9 @@ Page({
         })
       }
     }
-  }
+  },
+   // 分享功能
+  onShareAppMessage:function(){
+   
+ }
 })

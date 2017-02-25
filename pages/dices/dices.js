@@ -153,5 +153,9 @@ Page({
         diceCount: this.data.diceCount + 1
       })
     }
-  }
+  },
+  // 分享功能
+  onShareAppMessage:function(){
+   
+ }
 })

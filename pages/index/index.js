@@ -19,4 +19,8 @@ Page({
      url: '../custom/custom',
    })
  },
+  // 分享功能
+  onShareAppMessage:function(){
+   
+ }
 })
