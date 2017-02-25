@@ -10,6 +10,26 @@ Page({
       this.timer = null;
       this.t = 50; //数字正常变化的时间间隔
       this.count = 0;// 数字正常变化的次数，大于这个次数后数字变化速度逐渐变慢
+
+      // 摇一摇
+      this.lastX=0;
+      this.lastY=0;
+      this.lastZ=0;
+      var that = this;
+      wx.onAccelerometerChange(function(res){
+        if(that.lastX){
+          var deltaX = Math.abs(res.x-that.lastX),
+            deltaY=Math.abs(res.y-that.lastY),
+            deltaZ=Math.abs(res.z-that.lastZ);
+            if(deltaX > 0.9 || deltaY>0.9 || deltaZ>0.9){
+              that.start();
+            }
+        }
+        that.lastX = res.x;
+        that.lastY = res.y;
+        that.lastZ = res.z;
+      })
+       
   },
   onHide:function(){
     // 页面隐藏
@@ -72,7 +92,7 @@ Page({
       this.timer = setTimeout(this.roll,50);
     }else{
       this.t *= 1.5;
-      if(this.t < 2000){
+      if(this.t < 1500){
         this.timer = setTimeout(this.roll,this.t);
       }else{
         this.t = 50;

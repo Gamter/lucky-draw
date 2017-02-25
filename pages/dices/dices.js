@@ -19,6 +19,25 @@ Page({
       duration: 400,
       timingFunction: 'linear',
     });
+
+    // 摇一摇
+      this.lastX=0;
+      this.lastY=0;
+      this.lastZ=0;
+      var that = this;
+      wx.onAccelerometerChange(function(res){
+        if(that.lastX){
+          var deltaX = Math.abs(res.x-that.lastX),
+            deltaY=Math.abs(res.y-that.lastY),
+            deltaZ=Math.abs(res.z-that.lastZ);
+            if(deltaX > 0.9 || deltaY>0.9 || deltaZ>0.9){
+              that.onRollTap();
+            }
+        }
+        that.lastX = res.x;
+        that.lastY = res.y;
+        that.lastZ = res.z;
+      })
   },
   onReady: function () {
     // 页面渲染完成
