@@ -126,7 +126,6 @@ Page({
       })
     }
   },
-
   // 增加色子数量
   addDice: function () {
     if (this.data.diceCount < 9) {

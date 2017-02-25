@@ -1,13 +1,15 @@
 {
   "pages":[
+    "pages/custom/custom",
+    "pages/custom/itemSetting/itemSetting",
     "pages/dices/dices",
     "pages/ramdomNum/randomNum",
     "pages/index/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#bbb",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#7f7f7f",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle":"white"
   }
 }

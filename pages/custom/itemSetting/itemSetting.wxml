@@ -1,0 +1,17 @@
+
+<!--pages/custom/itemSetting/itemSetting.wxml-->
+<import src="item-template/item-template.wxml" />
+<scroll-view id="item-list" scroll-y="true" scroll-top="{{scrollTop}}">
+  <block wx:for="{{itemsData}}">
+    <view class="item">
+      <template is="item-template" data="{{...item,index,hideBtn}}" />
+    </view>
+  </block>
+  <view id="add">
+    <image src="/images/btn-add.png" catchtap="addItem" hidden="{{hideBtn}}">
+    </image>
+  </view>
+</scroll-view>
+<view id="save-container" catchtap="saveAndback" hidden="{{hideBtn}}">
+  <text id="save" >保存并返回</text>
+</view>

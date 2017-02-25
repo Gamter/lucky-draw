@@ -1,0 +1,50 @@
+/* pages/custom/itemSetting/itemSetting.wxss */
+@import "item-template/item-template.wxss";
+page{
+    background-color: #7b7b7b;
+}
+
+#item-list{
+    position: absolute;
+    top:10%;
+    bottom: 40%;
+}
+
+#item-list view{
+    margin: 10rpx auto;
+    height: 100rpx;
+}
+
+.item{
+
+}
+
+#add{
+    width: 100rpx;
+    text-align: center;
+    height: 120rpx;
+    line-height: 120rpx;
+}
+
+#add image{
+    width:60rpx;
+    height: 60rpx;
+}
+
+#save-container{
+    position:absolute;
+    bottom:20%;
+    left: 50%;
+    width: 240rpx;
+    height: 100rpx;
+    margin-left: -120rpx;
+    border: 1px solid white;
+    border-radius: 20rpx;
+    line-height: 100rpx;
+    text-align: center;
+    color:white;
+}
+
+#save{
+
+}
