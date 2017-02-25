@@ -1,8 +1,5 @@
 /* pages/custom/itemSetting/itemSetting.wxss */
 @import "item-template/item-template.wxss";
-page{
-    background-color: #7b7b7b;
-}
 
 #item-list{
     position: absolute;
