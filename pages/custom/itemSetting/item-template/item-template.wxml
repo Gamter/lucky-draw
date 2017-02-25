@@ -2,10 +2,10 @@
   <view id="item-container">
     <view id="number">{{index+1}}</view>
     <view id="item">
-      <input placeholder="项目名" value="{{item}}" placeholder-style="color:white;opacity:0.3;" focus="true" bindblur="saveItem"/>
+      <input placeholder="项目名" value="{{item}}" placeholder-class="place-holder" bindfocus="onInputFocus" focus="{{inputFocus}}" bindblur="onInputBlur" data-idx="{{index}}"/>
     </view>
-    <view id="remove" catchtap="removeItem" data-idx="{{index}}">
-      <image src="/images/btn-delete.png"></image>
+    <view id="remove">
+      <image src="/images/btn-delete.png" catchtap="removeItem" data-idx="{{index}}" hidden="{{hideBtn}}"></image>
     </view>
   </view>
 </template>

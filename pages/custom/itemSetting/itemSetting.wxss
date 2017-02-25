@@ -22,6 +22,7 @@ page{
 #add{
     width: 100rpx;
     text-align: center;
+    height: 120rpx;
     line-height: 120rpx;
 }
 
@@ -34,9 +35,9 @@ page{
     position:absolute;
     bottom:20%;
     left: 50%;
-    width: 200rpx;
+    width: 240rpx;
     height: 100rpx;
-    margin-left: -100rpx;
+    margin-left: -120rpx;
     border: 1px solid white;
     border-radius: 20rpx;
     line-height: 100rpx;

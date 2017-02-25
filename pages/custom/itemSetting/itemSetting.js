@@ -10,15 +10,17 @@ Page({
     })
   },
   addItem: function () {
-    this.itemsData.push("");
-    this.setData({
-      itemsData: this.itemsData
-    });
-
+    var itemData = {
+      item:"",
+      inputFocus:true
+    };
+    this.itemsData.push(itemData);
     this.setData({
       itemsData: this.itemsData,
-      scrollTop: this.data.itemsData.length * 1000
     });
+    this.setData({
+      scrollTop: 6666
+    })
   },
   removeItem: function (event) {
     var idx = event.currentTarget.dataset.idx;
@@ -27,10 +29,23 @@ Page({
       itemsData: this.itemsData
     })
   },
-  saveItem: function (event) {
-    this.itemsData[this.itemsData.length - 1] = event.detail.value;
+  onInputFocus:function(){
+    // 输入框聚焦时隐藏添加项目按钮和删除项目按钮
+    this.setData({
+      hideBtn:true
+    })
   },
-  saveItems: function () {
+  onInputBlur: function (event) {
+    var idx = event.currentTarget.dataset.idx;
+    var itemValue = event.detail.value;
+    this.itemsData[idx].item = itemValue;
+    this.itemsData[idx].inputFocus = false;
+    // 输入框失焦时显示添加项目按钮和删除项目按钮
+    this.setData({
+      hideBtn:false
+    })
+  },
+  saveAndback: function () {
     // 保存项目数据
     wx.setStorageSync('itemsData', this.itemsData);
     // 退回开始页面

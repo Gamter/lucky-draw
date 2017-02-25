@@ -17,6 +17,10 @@
     height: 80rpx;
 }
 
+.place-holder{
+  color: #999;
+}
+
 #item input {
   width: 350rpx;
   height: 80rpx;
