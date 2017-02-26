@@ -21,6 +21,13 @@ Page({
       timingFunction: 'linear',
     });
 
+    // 读取色子数量
+    if(wx.getStorageSync('diceCount')){
+      this.setData({
+        diceCount:wx.getStorageSync('diceCount')
+      })
+    }
+
     // 摇一摇
       this.lastX=0;
       this.lastY=0;
@@ -143,7 +150,8 @@ Page({
     if (this.data.diceCount > 1) {
       this.setData({
         diceCount: this.data.diceCount - 1
-      })
+      });
+      wx.setStorageSync('diceCount', this.data.diceCount);
     }
   },
   // 增加色子数量
@@ -151,7 +159,8 @@ Page({
     if (this.data.diceCount < 9) {
       this.setData({
         diceCount: this.data.diceCount + 1
-      })
+      });
+      wx.setStorageSync('diceCount', this.data.diceCount);
     }
   },
   // 分享功能
