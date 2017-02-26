@@ -1,4 +1,5 @@
 // pages/dice/dices.js
+var utils = require("../../utils/utils.js");
 Page({
   data: {
     diceCount: 1,
@@ -29,23 +30,7 @@ Page({
     }
 
     // 摇一摇
-      this.lastX=0;
-      this.lastY=0;
-      this.lastZ=0;
-      var that = this;
-      wx.onAccelerometerChange(function(res){
-        if(that.lastX){
-          var deltaX = Math.abs(res.x-that.lastX),
-            deltaY=Math.abs(res.y-that.lastY),
-            deltaZ=Math.abs(res.z-that.lastZ);
-            if(deltaX > 0.9 || deltaY>0.9 || deltaZ>0.9){
-              that.onRollTap();
-            }
-        }
-        that.lastX = res.x;
-        that.lastY = res.y;
-        that.lastZ = res.z;
-      })
+    utils.shake(this.onRollTap);
   },
   onReady: function () {
     // 页面渲染完成
@@ -138,6 +123,7 @@ Page({
     }
     
     var that = this;
+    clearTimeout(this.timer);
     this.timer = setTimeout(function(){
       // 色子改变点数并移入屏幕
       that.setDicesData(that.data.diceCount);

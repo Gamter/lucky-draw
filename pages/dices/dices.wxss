@@ -54,25 +54,26 @@
     position: absolute;
     bottom: 10%;
     left:50%;
-    margin-left: -150rpx;
-    width: 300rpx;
+    margin-left: -75rpx;
+    width: 150rpx;
     height: 150rpx;
 }
 #btn-roll{
     display: block;
     text-align: center;
-    width: 300rpx;
+    width: 150rpx;
     height: 150rpx;
     line-height: 150rpx;
     font-size: 50rpx;
     border: 2px solid white;
-    border-radius: 30px;
+    border-radius: 80rpx;
 }
 #btn-roll:active{
     position: relative;
-    width: 240rpx;
+    width: 120rpx;
     height:120rpx;
     top:15rpx;
-    left:30rpx;
+    left:15rpx;
+    font-size: 40rpx;
     line-height: 120rpx;
 }

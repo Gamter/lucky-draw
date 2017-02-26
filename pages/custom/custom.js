@@ -1,4 +1,5 @@
 // pages/custom/custom.js
+var utils = require("../../utils/utils.js");
 Page({
   data: {
     displayItem: "设置",
@@ -10,23 +11,7 @@ Page({
     this.t = 50;
     this.count = 0;
     // 摇一摇
-      this.lastX=0;
-      this.lastY=0;
-      this.lastZ=0;
-      var that = this;
-      wx.onAccelerometerChange(function(res){
-        if(that.lastX){
-          var deltaX = Math.abs(res.x-that.lastX),
-            deltaY=Math.abs(res.y-that.lastY),
-            deltaZ=Math.abs(res.z-that.lastZ);
-            if(deltaX > 0.9 || deltaY>0.9 || deltaZ>0.9){
-              that.start();
-            }
-        }
-        that.lastX = res.x;
-        that.lastY = res.y;
-        that.lastZ = res.z;
-      })
+    utils.shake(this.start);
   },
   onShow: function () {
     // 若没有设置过项目，或清空了项目，则隐藏开始按钮
