@@ -12,6 +12,18 @@ Page({
     this.t = 50; //数字正常变化的时间间隔
     this.count = 0;// 数字正常变化的次数，大于这个次数后数字变化速度逐渐变慢
 
+    // 读取之前设置的随机数
+    if(wx.getStorageSync('num1')){
+      this.setData({
+        num1:wx.getStorageSync('num1')
+      })
+    };
+    if(wx.getStorageSync('num2')){
+      this.setData({
+        num2:wx.getStorageSync('num2')
+      })
+    }
+
     // 摇一摇
     this.lastX = 0;
     this.lastY = 0;
@@ -45,13 +57,15 @@ Page({
     this.setData({
       num1: num
     });
+    wx.setStorageSync('num1', num);
   },
 
   setNum2: function (event) {
     var num = parseInt(event.detail.value);
     this.setData({
       num2: num
-    })
+    });
+    wx.setStorageSync('num2', num);
   },
 
   start: function () {
