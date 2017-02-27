@@ -42,7 +42,7 @@ Page({
     })
   },
   setTitle:function(event){
-    var title = event.detail.value;
+    var title = event.detail.value || " ";
     wx.setStorageSync('customTitle', title);
     this.setData({
       hideBtn:false

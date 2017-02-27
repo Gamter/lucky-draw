@@ -38,7 +38,10 @@ Page({
 
 
   setNum1: function (event) {
-    var num = parseInt(event.detail.value);
+    var num = 0;
+    if(event.detail.value){
+      num = parseInt(event.detail.value);
+    }
     this.setData({
       num1: num
     });
@@ -46,7 +49,10 @@ Page({
   },
 
   setNum2: function (event) {
-    var num = parseInt(event.detail.value);
+    var num = 0;
+    if(event.detail.value){
+      num = parseInt(event.detail.value);
+    }
     this.setData({
       num2: num
     });

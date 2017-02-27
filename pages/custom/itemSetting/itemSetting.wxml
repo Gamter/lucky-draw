@@ -4,7 +4,7 @@
 <view id="title-container">
 <view id="title-text">标题</view>
     <view id="title">
-      <input placeholder="项目名" value="{{title}}" placeholder-class="place-holder" bindfocus="onInputFocus" focus="{{inputFocus}}" bindblur="setTitle"/>
+      <input placeholder="标题名" value="{{title}}" placeholder-class="place-holder" bindfocus="onInputFocus" focus="{{inputFocus}}" bindblur="setTitle"/>
     </view>
 </view>
 <scroll-view id="item-list" scroll-y="true" scroll-top="{{scrollTop}}">
