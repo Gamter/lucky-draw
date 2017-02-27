@@ -1,6 +1,6 @@
 
 <!--pages/custom/custom.wxml-->
-<view id="title">{{title}}</view>
+<view id="title" catchtap="setItem">{{title}}</view>
 <view id="itemDisplay" catchtap="setItem">{{displayItem}}</view>
 <view hidden="{{hideBtn}}">
   <view class="btn-container" catchtap="start">摇</view>
