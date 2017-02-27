@@ -1,9 +1,15 @@
 // pages/custom/itemSetting/itemSetting.js
 Page({
   data: {
+    title:"自定义抽奖"
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
+    if(wx.getStorageSync('customTitle')){
+      this.setData({
+        title:wx.getStorageSync('customTitle')
+      })
+    }
     this.itemsData = wx.getStorageSync('itemsData') || [];
     this.setData({
       itemsData: this.itemsData
@@ -33,6 +39,13 @@ Page({
     // 输入框聚焦时隐藏添加项目按钮和删除项目按钮
     this.setData({
       hideBtn:true
+    })
+  },
+  setTitle:function(event){
+    var title = event.detail.value;
+    wx.setStorageSync('customTitle', title);
+    this.setData({
+      hideBtn:false
     })
   },
   onInputBlur: function (event) {

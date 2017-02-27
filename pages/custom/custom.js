@@ -2,6 +2,7 @@
 var utils = require("../../utils/utils.js");
 Page({
   data: {
+    title: "自定义抽奖",
     displayItem: "设置",
     hideBtn: true
   },
@@ -14,7 +15,12 @@ Page({
     utils.shake(this.start);
   },
   onShow: function () {
-    // 若没有设置过项目，或清空了项目，则隐藏开始按钮
+    // 根据数据的缓存情况进行设置
+    if(wx.getStorageSync('customTitle')){
+      this.setData({
+        title:wx.getStorageSync('customTitle')
+      })
+    }
     if (wx.getStorageSync('itemsData') && wx.getStorageSync('itemsData').length > 0) {
       this.setData({
         hideBtn: false

@@ -1,9 +1,21 @@
 /* pages/custom/custom.wxss */
+#title{
+    position: absolute;
+    top:80rpx;
+    height: 120rpx;
+    width: 600rpx;
+    left: 50%;
+    margin-left: -300rpx;
+    line-height: 60rpx;
+    text-align: center;
+    font-size:40rpx;
+    word-break: break-all;
+}
 
-#display-container{
+#itemDisplay{
     width:500rpx;
     position:absolute;
-    top:10%;
+    top:260rpx;
     left: 50%;
     margin-left: -250rpx;
     text-align: center;
